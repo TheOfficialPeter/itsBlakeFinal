@@ -1,5 +1,121 @@
 <html>
-<body>
-	<h1>Woah! That's fast</h1>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+	@font-face{
+		font-family: mc;
+		src: url("McLaren-Regular.ttf");
+	}
+
+	@font-face{
+		font-family: fuzzy;
+		src: url("fuzzy.ttf");
+	}
+
+	@media only screen and (max-width: 800px) {
+		#logo{
+			width: 40%;
+		}
+	}
+
+	@media only screen and (max-width: 500px) {
+		#logo{
+			width: 50%;
+		}
+	}
+
+	body{
+		margin: 0;
+		background: no-repeat  linear-gradient(180deg, rgba(254, 208, 39, 0.2) 0%, rgba(255, 237, 171, 0) 109.18%), linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)), url(background.png);
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	#picture-container{
+		padding-top: 5vh;
+		padding-bottom: 100px;
+		text-align: center;
+	}
+
+	#body2{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		animation: load 2s;
+	}
+
+	#logo{
+		width: 25%;
+	}
+
+	#scroll{
+		width: 5%;
+		transform: translateY(100px);
+		animation: scroll  2s infinite;
+	}
+
+	/**flicker effect**/
+	@keyframes flicker{
+		0%{
+			opacity: 1;
+		}
+		10%{
+			opacity: .3;
+		}
+		50%{
+			opacity: 1;
+		}
+		75%{
+			opacity: .6;
+		}
+		100%{
+			opacity: 1;
+		}
+	}
+
+	@keyframes load{
+		0%{
+			opacity: 0;
+		}
+		100%{
+			opacity: 1;
+		}
+	}
+
+	@keyframes unload{
+		0%{
+			opacity: 1;
+		}
+		100%{
+			opacity: 0;
+		}
+	}
+
+	@keyframes scroll{
+		0%{
+			transform: translateY(100px);
+		}
+		50%{
+			transform: translateY(75px);
+		}
+		100%{
+			transform: translateY(100px);
+		}
+	}
+</style>
+<body id="body">
+	<div id="body2">
+		<div id="picture-container">
+			<img id="logo" src="logo.png"/>
+			<h1 style="font-family: mc; color: white; font-weight: 400; font-size: 3vw; line-height: 72px; letter-spacing: 0.45em; transform: translateY(100px); animation: scroll 2s infinite;">click</h1>
+			<img id="scroll" src="scroll.png"/>
+		</div>
+	</div>
+	<script src="nav.js"></script>
 </body>
 </html>
