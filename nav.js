@@ -1,63 +1,58 @@
 var currentPage = 0;
 var navDebounce = false;
 
-// front-page elements
-var body2 = document.getElementById("body2");
-
 function addIntro() {
-	body2.style.animation = "unload 1s";
+	// add body off the next page
+	var newBody = document.createElement("div");
+	var title = document.createElement("h1");
+	var name = document.createElement("h1");
+	var click = document.createElement("h1");
+	var scroll = document.createElement("img");
 
-	//wait for animation to finish
+	// add inner Text
+	title.innerText = "Hi. I'm";
+	name.innerText = "Blake";
+	newBody.id = "newBody";
+
+	// add ids
+	click.id = "click";
+	scroll.id = "scroll";
+
+	// add styling
+	click.innerText = "click";
+	click.style = "font-family: mc; color: white; font-weight: 400; font-size: 3vw; line-height: 72px; letter-spacing: 0.45em; transform: translateY(100px); animation: scroll 2s infinite;";
+	scroll.src = "scroll.png";
+	newBody.style = "position: absolute; left: 0; right: 0; top: 0; bottom: 0; text-align: center; color: white; margin: 20px; opacity: 0; transition: all 2s";
+	title.style = "font-size: 10vw; font-family: fuzzy; font-weight: 100;";
+	name.style = "font-size: 20vw; font-family: mc; margin-top: -100px; color: rgba(200, 200, 100, 1);";
+
+	// render elements
+	document.body.appendChild(newBody);
+	newBody.appendChild(title);
+	newBody.appendChild(name);
+	newBody.appendChild(click);
+	newBody.appendChild(scroll);
+
+	// load new body
 	setTimeout(function() {
-		body2.style.opacity = "0";
-	}, 1000);
-
-	// temp remove the body2 2000(animation1) + 2000(animation2) = 4000
-	setTimeout(function() {
-		body2.style.display = "none";
-
-		// add body off the next page
-		var newBody = document.createElement("div");
-		var title = document.createElement("h1");
-		var name = document.createElement("h1");
-	
-		// add inner Text
-		title.innerText = "Hi. I'm";
-		name.innerText = "Blake";
-
-		// add styling
-		newBody.style = "position: absolute; left: 0; right: 0; top: 0; bottom: 0; text-align: center; color: white; margin: 20px; opacity: 0; transition: all 2s";
-		title.style = "font-size: 10vw; font-family: fuzzy; font-weight: 100;";
-		name.style = "font-size: 20vw; font-family: mc; margin-top: -100px; color: rgba(200, 200, 100, 1);";
-
-		// render elements
-		document.body.appendChild(newBody);
-		newBody.appendChild(title);
-		newBody.appendChild(name);
-		newBody.appendChild(document.getElementById("click"));
-		newBody.appendChild(document.getElementById("scroll"));
-
-		// load new body
-		setTimeout(function() {
-			newBody.style.opacity = "1";
-		},500);
-	}, 1000);
+		newBody.style.opacity = "1";
+	},500);
 }
 
 function removeIntro() {
 	console.log("hello");
-	var body3 = document.getElementById("body3");
+	var newBody = document.getElementById("newBody");
 
 	// fade out
-	body3.style.opacity = "0";
+	newBody.style.opacity = "0";
 
 	// wait for animation to complete
 	setTimeout(function() {
-		body3.style.display = "none";
+		newBody.style.display = "none";
 
 		// add new elements
-		var body4 = document.createElement("div"); 
-		body4.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
+		newBody = document.createElement("div"); 
+		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
 		
 		// add elements to new body
 		var pageTitle = document.createElement("h1");
@@ -67,12 +62,12 @@ function removeIntro() {
 		var plus = document.createElement("img");
 		
 		// render elements
-		body4.appendChild(pageTitle);
-		body4.appendChild(arrow);
-		body4.appendChild(neon1);
-		body4.appendChild(neon2);
-		body4.appendChild(plus);
-		document.body.appendChild(body4);
+		newBody.appendChild(pageTitle);
+		newBody.appendChild(arrow);
+		newBody.appendChild(neon1);
+		newBody.appendChild(neon2);
+		newBody.appendChild(plus);
+		document.body.appendChild(newBody);
  	}, 5000);
 }
 
@@ -106,31 +101,28 @@ function main() {
 
 		currentPage += 1;
 		if (currentPage == 1) {
-			addIntro();
-		}
-		else if (currentPage == 2) {
 			removeIntro();
 			addAbout();
 		}
-		else if (currentPage == 3) {
+		else if (currentPage == 2) {
 			removeAbout();
 			addWork();
 		}
-		else if (currentPage == 4) {
+		else if (currentPage == 3) {
 			removeWork();
-			addContact()
+			addContact();
 		}
-		else if (currentPage >= 5) {
+		else if (currentPage == 4) {
 			removeContact();
 			
 			// go to starting page
 			currentPage = 1;
 		}
-
 		navDebounce = false;
 	}
 }
 
+window.onload = addIntro();
 window.onclick = function(e) {
 	main();
 };
