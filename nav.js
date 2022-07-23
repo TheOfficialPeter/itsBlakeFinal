@@ -1,6 +1,5 @@
 var currentPage = 0;
 var navDebounce = false;
-var navDelay = "5s";
 
 // front-page elements
 var body2 = document.getElementById("body2");
@@ -18,43 +17,70 @@ function addIntro() {
 		body2.style.display = "none";
 
 		// add body off the next page
-		var body3 = document.createElement("div");
-		body3.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
-		body3.id = "body3";
-
-		// add spacing from top
-		body3.style.paddingTop = "100px";
-
-		// add next page widgets
-		var about1 = document.createElement("img");
-		var about2 = document.createElement("img");
-
-		about1.src = "about1.png";
-		about2.src = "about2.png";
-
-		// fix layers + add spacing from top 350px instead of 250px
-		about2.style = "position: absolute; left: calc(50% - 1031.5px/2 - 25px); top: 350px;";
-
-		body3.appendChild(about1);
-		body3.appendChild(about2);
-		document.body.appendChild(body3);
-
-		// add opacity animation
-		about1.style.animation = "load 2s";
-		about2.style.animation = "load 5s";
-		
-		// add smoothness to animation
-		about2.style.transition = "all .2s";
-
-		// wait for animation to finish then add flicker effect
-		setTimeout(function() {
-			about2.style.animation = "flicker 1s 1s infinite";
-		}, 2500);
-	}, 1000);
+		var newBody = document.createElement("div");
+		var title = document.createElement("h1");
+		var name = document.createElement("h1");
 	
+		// add inner Text
+		title.innerText = "Hi. I'm";
+		name.innerText = "Blake";
+
+		// add styling
+		newBody.style = "position: absolute; left: 0; right: 0; top: 0; bottom: 0; text-align: center; color: white; margin: 20px; opacity: 0; transition: all 2s";
+		title.style = "font-size: 10vw; font-family: fuzzy; font-weight: 100;";
+		name.style = "font-size: 20vw; font-family: mc; margin-top: -100px; color: rgba(200, 200, 100, 1);";
+
+		// render elements
+		document.body.appendChild(newBody);
+		newBody.appendChild(title);
+		newBody.appendChild(name);
+		newBody.appendChild(document.getElementById("click"));
+		newBody.appendChild(document.getElementById("scroll"));
+
+		// load new body
+		setTimeout(function() {
+			newBody.style.opacity = "1";
+		},500);
+	}, 1000);
 }
 
 function removeIntro() {
+	console.log("hello");
+	var body3 = document.getElementById("body3");
+
+	// fade out
+	body3.style.opacity = "0";
+
+	// wait for animation to complete
+	setTimeout(function() {
+		body3.style.display = "none";
+
+		// add new elements
+		var body4 = document.createElement("div"); 
+		body4.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
+		
+		// add elements to new body
+		var pageTitle = document.createElement("h1");
+		var arrow = document.createElement("img");
+		var neon1 = document.createElement("h1");
+		var neon2 = document.createElement("h1");
+		var plus = document.createElement("img");
+		
+		// render elements
+		body4.appendChild(pageTitle);
+		body4.appendChild(arrow);
+		body4.appendChild(neon1);
+		body4.appendChild(neon2);
+		body4.appendChild(plus);
+		document.body.appendChild(body4);
+ 	}, 5000);
+}
+
+function addAbout() {
+
+}
+
+function removeAbout() {
 
 }
 
@@ -84,16 +110,19 @@ function main() {
 		}
 		else if (currentPage == 2) {
 			removeIntro();
-			addWork();
+			addAbout();
 		}
 		else if (currentPage == 3) {
-			removeWork();
-			addContact();
+			removeAbout();
+			addWork();
 		}
-		else if (currentPage >= 4) {
+		else if (currentPage == 4) {
+			removeWork();
+			addContact()
+		}
+		else if (currentPage >= 5) {
 			removeContact();
-			addIntro();
-
+			
 			// go to starting page
 			currentPage = 1;
 		}
