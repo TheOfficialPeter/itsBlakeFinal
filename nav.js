@@ -15,6 +15,8 @@ function addIntro() {
 	newBody.id = "newBody";
 
 	// add ids
+	title.id = "title";
+	name.id = "name";
 	click.id = "click";
 	scroll.id = "scroll";
 
@@ -22,9 +24,10 @@ function addIntro() {
 	click.innerText = "click";
 	click.style = "font-family: mc; color: white; font-weight: 400; font-size: 3vw; line-height: 72px; letter-spacing: 0.45em; transform: translateY(100px); animation: scroll 2s infinite;";
 	scroll.src = "scroll.png";
+
 	newBody.style = "position: absolute; left: 0; right: 0; top: 0; bottom: 0; text-align: center; color: white; margin: 20px; opacity: 0; transition: all 2s";
-	title.style = "font-size: 10vw; font-family: fuzzy; font-weight: 100;";
-	name.style = "font-size: 20vw; font-family: mc; margin-top: -100px; color: rgba(200, 200, 100, 1);";
+	title.style = "font-size: 5vw; font-family: fuzzy; font-weight: 100;";
+	name.style = "font-size: 10vw; font-family: mc; margin-top: -5%; color: rgba(200, 200, 100, 1);";
 
 	// render elements
 	document.body.appendChild(newBody);

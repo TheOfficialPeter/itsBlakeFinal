@@ -1,17 +1,25 @@
 function checkScreen() {
+	var click = document.getElementById("click");
+	var scroll = document.getElementById("scroll");
 	// check mobile
 	if (window.innerWidth <= 700) {
 		// check for info page
 		//var about1 = document.getElementById("about1");
 		//var about2 = document.getElementById("about2");
-		var logo = document.getElementById("logo");
-		var click = document.getElementById("click");
-		var scroll = document.getElementById("scroll");
+		
+		var title = document.getElementById("title");
+		var name = document.getElementById("name");
 
-		scroll.style.width = "10%";
-		click.style.fontSize = "5vw";
-		logo.style.width = "50%";
+		if (name !== null && title !== null) {
+			// change font size of title page
+			title.style.fontSize = "10vw";
+			name.style.fontSize = "20vw";
+		}
+
+		scroll.style.width = "15%";
+		click.style.fontSize = "7vw";
 	}
+
 }
 
 window.onload = checkScreen;
