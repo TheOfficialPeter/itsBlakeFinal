@@ -13,6 +13,9 @@ function checkScreen() {
 		var title2 = document.getElementById("title2");
 		var content = document.getElementById("pageContent");
 
+		var aboutTitle = document.getElementById("aboutTitle");
+		var about = document.getElementById("aboutContent");
+
 		if (name !== null && title !== null) {
 			// change font size of title page
 			title.style.fontSize = "10vw";
@@ -24,8 +27,15 @@ function checkScreen() {
 			content.style.fontSize = "5vw";
 		}
 
-		scroll.style.width = "15%";
-		click.style.fontSize = "7vw";
+		if (aboutTitle !== null && aboutContent !== null){
+			aboutTitle.style.fontSize = "10vw";
+			aboutContent.style.fontSize = "5vw";
+		}
+
+		if (scroll !== null && click !== null){
+			scroll.style.width = "15%";
+			click.style.fontSize = "7vw";
+		}
 	}
 
 }

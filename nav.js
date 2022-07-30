@@ -70,8 +70,8 @@ function addAbout() {
 		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: fuzzy; text-align: center;";
 		pageContent.style = "color: white; opacity: 0; font-size: 2vw; font-weight: 100; font-family: mc; text-align: center;";
 
-		pageTitle.id = "title2";
-		pageContent.id = "pageContent";
+		pageTitle.id = "aboutTitle";
+		pageContent.id = "aboutContent";
 
 		newBody.appendChild(pageTitle);
 		newBody.appendChild(pageContent);
@@ -82,6 +82,8 @@ function addAbout() {
 
 		pageTitle.style.transition = "all 2s";
 		pageContent.style.transition = "all 2s";
+
+		checkScreen();
 
 		setTimeout(function() {
 			pageTitle.style.opacity = "1";
