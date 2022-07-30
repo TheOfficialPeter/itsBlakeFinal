@@ -1,7 +1,6 @@
 function checkScreen() {
 	var click = document.getElementById("click");
 	var scroll = document.getElementById("scroll");
-	// check mobile
 	if (window.innerWidth <= 700) {
 		// check for info page
 		//var about1 = document.getElementById("about1");
