@@ -26,7 +26,7 @@ function addIntro() {
 	click.style = "font-family: mc; color: white; font-weight: 400; font-size: 3vw; line-height: 72px; letter-spacing: 0.45em; transform: translateY(100px); animation: scroll 2s infinite;";
 	scroll.src = "scroll.png";
 
-	newBody.style = "position: absolute; left: 0; right: 0; top: 0; bottom: 0; text-align: center; color: white; margin: 20px; opacity: 0; transition: all 2s";
+	newBody.style = "position: absolute; left: 0; right: 0; top: 0; bottom: 0; text-align: center; color: white; margin: 20px; opacity: 0; transition: all 1.5s";
 	title.style = "font-size: 5vw; font-family: fuzzy; font-weight: 100;";
 	name.style = "font-size: 10vw; font-family: mc; margin-top: -5%; color: rgba(200, 200, 100, 1);";
 
@@ -52,23 +52,19 @@ function removeIntro() {
 }
 
 function addAbout() {
-	var newBody = document.getElementById("newBody");
-
-	newBody.style.opacity = "0";
-
 	setTimeout(function() {
 		var newBody = document.getElementById("newBody");
 		newBody.remove();
 
 		var newBody = document.createElement("div"); 
 		newBody.id = "newBody";
-		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
+		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 1.5s;";
 
 		var pageTitle = document.createElement("h1");
 		var pageContent = document.createElement("h1");
 
 		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: fuzzy; text-align: center;";
-		pageContent.style = "color: white; opacity: 0; font-size: 2vw; font-weight: 100; font-family: mc; text-align: center;";
+		pageContent.style = "color: white; opacity: 0; font-size: 3vw; font-weight: 100; font-family: mc; text-align: center;";
 
 		pageTitle.id = "aboutTitle";
 		pageContent.id = "aboutContent";
@@ -78,7 +74,9 @@ function addAbout() {
 		document.body.appendChild(newBody);
 
 		pageTitle.innerHTML = "Who am <font color='#F0FF93'>I</font>?";
-		pageContent.innerText = "yes";
+		pageContent.style.marginLeft = "10px";
+		pageContent.style.marginRight = "10px";
+		pageContent.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 		pageTitle.style.transition = "all 2s";
 		pageContent.style.transition = "all 2s";
@@ -95,39 +93,67 @@ function addAbout() {
 function removeAbout() {
 	var newBody = document.getElementById("newBody"); 
 	newBody.style.opacity = "0";
-	
+}
+
+function addWork() {
 	setTimeout(function() {
 		var newBody = document.getElementById("newBody"); 
 		newBody.remove();
 
 		var newBody = document.createElement("div"); 
-		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
+		newBody.id = "newBody";
+		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 1.5s;";
 
 		var pageTitle = document.createElement("h1");
-		var contentDiv = document.createElement("div");
+		var contentDiv = document.createElement("ul");
 		var modeling = document.createElement("div");
 		var building = document.createElement("div");
 
-		contentDiv.style = "text-align: center; width: auto;";
+		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: mc; text-align: center; transition: all 2s";
+		pageTitle.id = "workTitle";
+		pageTitle.innerText = "wHaT I Do";
 
-		document.body.appendChild(newBody);
+		contentDiv.style = "text-align: center; width: auto; list-style-type: none; transition: all 1.5s; opacity: 0;";
+		modeling.style = "outline: 2px solid white; margin-left: 20%; margin-top: 50px; padding: 10px; float: left; width: 200px;";
+		building.style = "outline: 2px solid white; margin-right: 20%; margin-top: 50px; padding: 10px; float: right; width: 200px;";
+
+		var blockTitle = document.createElement("li");
+		var blockTitle1 = document.createElement("li");
+		blockTitle.style = "font-family: fuzzy; font-size: 30px; color: #F0FF93; text-align: center;";
+		blockTitle1.style = "font-family: fuzzy; font-size: 30px; color: #F0FF93; text-align: center;";
+
+		blockTitle1.innerText = "Modeling";
+		blockTitle.innerText = "Building";
+
+		modeling.appendChild(blockTitle1);
+		building.appendChild(blockTitle);
+		
+		contentDiv.appendChild(building)
+		contentDiv.appendChild(modeling)
 		newBody.appendChild(pageTitle)
 		newBody.appendChild(contentDiv)
-		newBody.appendChild(modeling)
-		newBody.appendChild(building)
-	},2000);
-}
+		document.body.appendChild(newBody);
 
-function addWork() {
-
+		checkScreen();
+		setTimeout(function() {
+			pageTitle.style.opacity = "1";
+			contentDiv.style.opacity = "1";
+		},100);
+	},1500);
 }
 
 function removeWork() {
-
+	var newBody = document.getElementById("newBody"); 
+	newBody.style.opacity = "0";
 }
 
 function addContact() {
+	setTimeout(function() {
+		var newBody = document.getElementById("newBody"); 
+		newBody.remove();
 
+
+	},1500);
 }
 
 function main() {

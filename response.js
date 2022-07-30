@@ -1,6 +1,10 @@
 function checkScreen() {
 	var click = document.getElementById("click");
 	var scroll = document.getElementById("scroll");
+	if (window.innerWidth <= 800) {
+		
+	}
+
 	if (window.innerWidth <= 700) {
 		// check for info page
 		//var about1 = document.getElementById("about1");
@@ -14,6 +18,12 @@ function checkScreen() {
 
 		var aboutTitle = document.getElementById("aboutTitle");
 		var about = document.getElementById("aboutContent");
+
+		var workTitle = document.getElementById("workTitle");
+		
+		if (workTitle !== null) {
+			workTitle.style.fontSize = "10vw";
+		}
 
 		if (name !== null && title !== null) {
 			// change font size of title page
