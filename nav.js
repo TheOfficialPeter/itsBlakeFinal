@@ -15,6 +15,7 @@ function addIntro() {
 	newBody.id = "newBody";
 
 	// add ids
+	newBody.id = "newBody";
 	title.id = "title";
 	name.id = "name";
 	click.id = "click";
@@ -43,43 +44,76 @@ function addIntro() {
 }
 
 function removeIntro() {
-	console.log("hello");
 	var newBody = document.getElementById("newBody");
+	newBody.id = "newBody";
 
 	// fade out
 	newBody.style.opacity = "0";
-
-	// wait for animation to complete
-	setTimeout(function() {
-		newBody.style.display = "none";
-
-		// add new elements
-		newBody = document.createElement("div"); 
-		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
-		
-		// add elements to new body
-		var pageTitle = document.createElement("h1");
-		var arrow = document.createElement("img");
-		var neon1 = document.createElement("h1");
-		var neon2 = document.createElement("h1");
-		var plus = document.createElement("img");
-		
-		// render elements
-		newBody.appendChild(pageTitle);
-		newBody.appendChild(arrow);
-		newBody.appendChild(neon1);
-		newBody.appendChild(neon2);
-		newBody.appendChild(plus);
-		document.body.appendChild(newBody);
- 	}, 5000);
 }
 
 function addAbout() {
+	var newBody = document.getElementById("newBody");
 
+	newBody.style.opacity = "0";
+
+	setTimeout(function() {
+		var newBody = document.getElementById("newBody");
+		newBody.remove();
+
+		var newBody = document.createElement("div"); 
+		newBody.id = "newBody";
+		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
+
+		var pageTitle = document.createElement("h1");
+		var pageContent = document.createElement("h1");
+
+		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: fuzzy; text-align: center;";
+		pageContent.style = "color: white; opacity: 0; font-size: 2vw; font-weight: 100; font-family: mc; text-align: center;";
+
+		pageTitle.id = "title2";
+		pageContent.id = "pageContent";
+
+		newBody.appendChild(pageTitle);
+		newBody.appendChild(pageContent);
+		document.body.appendChild(newBody);
+
+		pageTitle.innerHTML = "Who am <font color='#F0FF93'>I</font>?";
+		pageContent.innerText = "yes";
+
+		pageTitle.style.transition = "all 2s";
+		pageContent.style.transition = "all 2s";
+
+		setTimeout(function() {
+			pageTitle.style.opacity = "1";
+			pageContent.style.opacity = "1";
+		},100);
+	},2000);
 }
 
 function removeAbout() {
+	var newBody = document.getElementById("newBody"); 
+	newBody.style.opacity = "0";
+	
+	setTimeout(function() {
+		var newBody = document.getElementById("newBody"); 
+		newBody.remove();
 
+		var newBody = document.createElement("div"); 
+		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 2s;";
+
+		var pageTitle = document.createElement("h1");
+		var contentDiv = document.createElement("div");
+		var modeling = document.createElement("div");
+		var building = document.createElement("div");
+
+		contentDiv.style = "text-align: center; width: auto;";
+
+		document.body.appendChild(newBody);
+		newBody.appendChild(pageTitle)
+		newBody.appendChild(contentDiv)
+		newBody.appendChild(modeling)
+		newBody.appendChild(building)
+	},2000);
 }
 
 function addWork() {
@@ -94,15 +128,12 @@ function addContact() {
 
 }
 
-function removeContact() {
-
-}
-
 function main() {
 	if (navDebounce == false) {
 		navDebounce = true;
-
+		
 		currentPage += 1;
+		console.log(currentPage);
 		if (currentPage == 1) {
 			removeIntro();
 			addAbout();
@@ -114,12 +145,6 @@ function main() {
 		else if (currentPage == 3) {
 			removeWork();
 			addContact();
-		}
-		else if (currentPage == 4) {
-			removeContact();
-			
-			// go to starting page
-			currentPage = 1;
 		}
 		navDebounce = false;
 	}
