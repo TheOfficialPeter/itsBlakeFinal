@@ -76,7 +76,7 @@ function addAbout() {
 		pageTitle.innerHTML = "Who<font color='#F0FF93'>?</font>";
 		pageContent.style.marginLeft = "5%";
 		pageContent.style.marginRight = "5%";
-		pageContent.innerText = "My name is Blake, and I have experience with Blender and Roblox to model and build. I'm always available and only accept Robux as payment. Please be aware before contacting me that I only accept upfront payments to avoid being taken advantage of or wasting my time. The percentage of the upfront payment ranges from 30% to 50%. BUT! A commission of $10,000 or more will only represent 20% of the total payment. I appreciate you reading this. ";
+		pageContent.innerText = "My name is Blake, and I have experience with Blender and Roblox to model and build. I'm always available and only accept Robux as payment. Please be aware before contacting me that I only accept upfront payments to avoid being taken advantage of or wasting my time. The percentage of the upfront payment ranges from 30% to 50%. BUT! A commission of 10k+ or more will only be 20% of the total payment. I appreciate you reading this. ";
 
 		pageTitle.style.transition = "all 2s";
 		pageContent.style.transition = "all 2s";
