@@ -59,12 +59,12 @@ function addAbout() {
 		var newBody = document.createElement("div"); 
 		newBody.id = "newBody";
 		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 1.5s;";
-
+		
 		var pageTitle = document.createElement("h1");
 		var pageContent = document.createElement("h1");
 
 		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: fuzzy; text-align: center;";
-		pageContent.style = "color: white; opacity: 0; font-size: 3vw; font-weight: 100; font-family: mc; text-align: center;";
+		pageContent.style = "background-color: rgba(0,0,0,.25); outline: 2px solid rgba(255,255,255,.25); padding: 20px; color: #F0FF93; opacity: 0; font-size: 3vw; font-weight: 100; font-family: mc; text-align: center;";
 
 		pageTitle.id = "aboutTitle";
 		pageContent.id = "aboutContent";
@@ -74,9 +74,9 @@ function addAbout() {
 		document.body.appendChild(newBody);
 
 		pageTitle.innerHTML = "Who<font color='#F0FF93'>?</font>";
-		pageContent.style.marginLeft = "10px";
-		pageContent.style.marginRight = "10px";
-		pageContent.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		pageContent.style.marginLeft = "5%";
+		pageContent.style.marginRight = "5%";
+		pageContent.innerText = "Hello ! My name is Blake, I'm an Experienced Modeller & Builder in Roblox & Blender. I'm always free and accept only Robux as a Payement method. Before contacting me, please understand that I work with an upfront Payement to prevent getting scammed or wasting my time. The upfront payements can go from 30% to 50%. BUT! If it's a very big commission 10K+ it'll only be 20% of the Payement. Thank you for reading this ! ";
 
 		pageTitle.style.transition = "all 2s";
 		pageContent.style.transition = "all 2s";
@@ -95,6 +95,63 @@ function removeAbout() {
 	newBody.style.opacity = "0";
 }
 
+function addWork() {
+	setTimeout(function() {
+		var newBody = document.getElementById("newBody"); 
+		newBody.remove();
+		
+		var newBody = document.createElement("div"); 
+		newBody.id = "newBody";
+		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 1.5s;";
+		
+		document.body.style.overflow = "visible";
+		document.body.style.height = "200vw";
+
+		newBody.style.height = "200vw";
+		
+		var images = ["1.PNG", "2.PNG", "3.PNG", "4.PNG"];
+
+		var pageTitle = document.createElement("h1");
+		var pageContent = document.createElement("h1");
+
+		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: mc; text-align: center;";
+		pageContent.style = "color: white; opacity: 0; font-size: 3vw; font-family: Quicksand; text-align: center; background-color: rgba(0,0,0,.25); outline: 2px solid rgba(255,255,255,.25); padding: 20px; margin-left: 5%; margin-right: 5%;";
+
+		pageTitle.id = "aboutTitle";
+		pageContent.id = "aboutContent";
+
+		for (var i = 0; i < images.length; i++) {
+			var image = document.createElement("img");
+			image.src = images[i];
+			image.style = "height: 30vw; padding: 20px; border-radius: 50px; transition: all .2s";
+
+			pageContent.appendChild(image);
+		}
+
+		newBody.appendChild(pageTitle);
+		newBody.appendChild(pageContent);
+		document.body.appendChild(newBody);
+
+		pageTitle.innerHTML = "Gallery";
+
+		pageTitle.style.transition = "all 2s";
+		pageContent.style.transition = "all 2s";
+
+		checkScreen();
+
+		setTimeout(function() {
+			pageTitle.style.opacity = "1";
+			pageContent.style.opacity = "1";
+		},100);
+
+	},2000);
+}
+
+function removeWork() {
+	var newBody = document.getElementById("newBody"); 
+	newBody.style.opacity = "0";
+}
+
 function addContact() {
 	setTimeout(function() {
 		var newBody = document.getElementById("newBody"); 
@@ -103,7 +160,10 @@ function addContact() {
 		var newBody = document.createElement("div"); 
 		newBody.id = "newBody";
 		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 1.5s;";
-
+		
+		document.body.style.overflow = "hidden";
+		document.body.style.height = "100%";
+		
 		var pageTitle = document.createElement("h1");
 		var pageContent = document.createElement("h1");
 
@@ -147,6 +207,10 @@ function main() {
 		}
 		else if (currentPage == 2) {
 			removeAbout();
+			addWork();
+		}
+		else if (currentPage == 3) {
+			removeWork();
 			addContact();
 		}
 		navDebounce = false;
