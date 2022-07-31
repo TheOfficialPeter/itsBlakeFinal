@@ -73,7 +73,7 @@ function addAbout() {
 		newBody.appendChild(pageContent);
 		document.body.appendChild(newBody);
 
-		pageTitle.innerHTML = "Who am <font color='#F0FF93'>I</font>?";
+		pageTitle.innerHTML = "Who<font color='#F0FF93'>?</font>";
 		pageContent.style.marginLeft = "10px";
 		pageContent.style.marginRight = "10px";
 		pageContent.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
@@ -108,7 +108,7 @@ function addContact() {
 		var pageContent = document.createElement("h1");
 
 		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: mc; text-align: center;";
-		pageContent.style = "color: white; opacity: 0; font-size: 3vw; font-weight: 100; font-family: Arial; text-align: center;";
+		pageContent.style = "color: white; opacity: 0; font-size: 3vw; font-family: Quicksand; text-align: center;";
 
 		pageTitle.id = "aboutTitle";
 		pageContent.id = "aboutContent";
@@ -120,7 +120,7 @@ function addContact() {
 		pageTitle.innerHTML = "Contact Me";
 		pageContent.style.marginLeft = "10px";
 		pageContent.style.marginRight = "10px";
-		pageContent.innerHTML = "<font color='#F0FF93'>Discord:<br/></font>ItzBlake#1470<br/><font color='#F0FF93'>Email:<br/></font>blake.contact.medias@gmail.com";
+		pageContent.innerHTML = "<font color='#F0FF93'>Discord:<br/></font>ItzBlake#1470<br/><font color='#F0FF93' family='mc'>Email:<br/></font>blake.contact.medias@gmail.com";
 
 		pageTitle.style.transition = "all 2s";
 		pageContent.style.transition = "all 2s";
