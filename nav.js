@@ -105,9 +105,9 @@ function addWork() {
 		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 1.5s;";
 		
 		document.body.style.overflow = "visible";
-		document.body.style.height = "200vw";
+		document.body.style.height = "300vw";
 
-		newBody.style.height = "200vw";
+		newBody.style.height = "300vw";
 		
 		var images = ["1.PNG", "2.PNG", "3.PNG", "4.PNG"];
 
