@@ -95,65 +95,44 @@ function removeAbout() {
 	newBody.style.opacity = "0";
 }
 
-function addWork() {
+function addContact() {
 	setTimeout(function() {
 		var newBody = document.getElementById("newBody"); 
 		newBody.remove();
-
+		
 		var newBody = document.createElement("div"); 
 		newBody.id = "newBody";
 		newBody.style = "text-align: center; position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: all 1.5s;";
 
 		var pageTitle = document.createElement("h1");
-		var contentDiv = document.createElement("ul");
-		var modeling = document.createElement("div");
-		var building = document.createElement("div");
+		var pageContent = document.createElement("h1");
 
-		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: mc; text-align: center; transition: all 2s";
-		pageTitle.id = "workTitle";
-		pageTitle.innerText = "wHaT I Do";
+		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: mc; text-align: center;";
+		pageContent.style = "color: white; opacity: 0; font-size: 3vw; font-weight: 100; font-family: mc; text-align: center;";
 
-		contentDiv.style = "text-align: center; width: auto; list-style-type: none; transition: all 1.5s; opacity: 0;";
-		modeling.style = "outline: 2px solid white; margin-left: 20%; margin-top: 50px; padding: 10px; float: left; width: 200px;";
-		building.style = "outline: 2px solid white; margin-right: 20%; margin-top: 50px; padding: 10px; float: right; width: 200px;";
+		pageTitle.id = "aboutTitle";
+		pageContent.id = "aboutContent";
 
-		var blockTitle = document.createElement("li");
-		var blockTitle1 = document.createElement("li");
-		blockTitle.style = "font-family: fuzzy; font-size: 30px; color: #F0FF93; text-align: center;";
-		blockTitle1.style = "font-family: fuzzy; font-size: 30px; color: #F0FF93; text-align: center;";
-
-		blockTitle1.innerText = "Modeling";
-		blockTitle.innerText = "Building";
-
-		modeling.appendChild(blockTitle1);
-		building.appendChild(blockTitle);
-		
-		contentDiv.appendChild(building)
-		contentDiv.appendChild(modeling)
-		newBody.appendChild(pageTitle)
-		newBody.appendChild(contentDiv)
+		newBody.appendChild(pageTitle);
+		newBody.appendChild(pageContent);
 		document.body.appendChild(newBody);
 
+		pageTitle.innerHTML = "Contact Me";
+		pageContent.style.marginLeft = "10px";
+		pageContent.style.marginRight = "10px";
+		pageContent.innerHTML = "<font color='#F0FF93'>Discord: </font>ItzBlake#1470<br/><font color='#F0FF93'>Email: </font>blake.contact.medias@gmail.com";
+
+		pageTitle.style.transition = "all 2s";
+		pageContent.style.transition = "all 2s";
+
 		checkScreen();
+
 		setTimeout(function() {
 			pageTitle.style.opacity = "1";
-			contentDiv.style.opacity = "1";
+			pageContent.style.opacity = "1";
 		},100);
-	},1500);
-}
 
-function removeWork() {
-	var newBody = document.getElementById("newBody"); 
-	newBody.style.opacity = "0";
-}
-
-function addContact() {
-	setTimeout(function() {
-		var newBody = document.getElementById("newBody"); 
-		newBody.remove();
-
-
-	},1500);
+	},2000);
 }
 
 function main() {
@@ -168,10 +147,6 @@ function main() {
 		}
 		else if (currentPage == 2) {
 			removeAbout();
-			addWork();
-		}
-		else if (currentPage == 3) {
-			removeWork();
 			addContact();
 		}
 		navDebounce = false;
