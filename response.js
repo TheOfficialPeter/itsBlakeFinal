@@ -36,9 +36,9 @@ function checkScreen() {
 			content.style.fontSize = "5vw";
 		}
 
-		if (aboutTitle !== null && aboutContent !== null){
+		if (aboutTitle !== null && about !== null){
 			aboutTitle.style.fontSize = "10vw";
-			aboutContent.style.fontSize = "5vw";
+			about.style.fontSize = "4vw";
 		}
 
 		if (scroll !== null && click !== null){

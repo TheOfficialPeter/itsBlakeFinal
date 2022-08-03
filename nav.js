@@ -64,7 +64,7 @@ function addAbout() {
 		var pageContent = document.createElement("h1");
 
 		pageTitle.style = "color: white; opacity: 0; font-size: 7vw; font-family: fuzzy; text-align: center;";
-		pageContent.style = "background-color: rgba(0,0,0,.25); outline: 2px solid rgba(255,255,255,.25); padding: 20px; color: #F0FF93; opacity: 0; font-size: 3vw; font-weight: 100; font-family: mc; text-align: center;";
+		pageContent.style = "background-color: rgba(0,0,0,.25); outline: 2px solid rgba(255,255,255,.25); padding: 20px; color: #F0FF93; opacity: 0; font-size: 2vw; font-weight: 100; font-family: mc; text-align: center;";
 
 		pageTitle.id = "aboutTitle";
 		pageContent.id = "aboutContent";
